@@ -1,0 +1,32 @@
+[
+    {
+        "nome": "Luiza Evangelista Catarin",
+        "cpf": "25249144888",
+        "placa": "EEI9240",
+        "chassi": "",
+        "cep": "",
+        "data": "2025-06-06",
+        "arquivo": "cotacao_luiza_catarin.html",
+        "pasta": "2025-06"
+    },
+    {
+        "nome": "Erik Moreira Bermejo",
+        "cpf": "49398392800",
+        "placa": "GDL1013",
+        "chassi": "",
+        "cep": "08573400",
+        "data": "2025-06-04",
+        "arquivo": "cotacao_erik_bermejo_ajustada_franquia.html",
+        "pasta": "2025-06"
+    },
+    {
+        "nome": "Alan Leandro Tanaka",
+        "cpf": "06750741800",
+        "placa": "ETU8H27",
+        "chassi": "9BD171B9MPL218102",
+        "cep": "08730580",
+        "data": "2025-08-01",
+        "arquivo": "01082025 - Alan Leandro Tanaka.html",
+        "pasta": "2025-08"
+    }
+]

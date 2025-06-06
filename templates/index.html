@@ -1,32 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Cotações de Seguro</title>
-    <style>
-        body { font-family: Arial, sans-serif; font-size: 14px; padding: 20px; }
-        .section { margin-bottom: 15px; }
-        .title { font-weight: bold; margin-top: 10px; }
-        .entry { margin-left: 10px; cursor: pointer; }
-        .entry:hover { background-color: #f0f0f0; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Femavi - Cotações</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f4f8;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    h2 {
+      margin-top: 40px;
+      color: #003366;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      background-color: white;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 5px;
+      border-left: 4px solid #0077cc;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function buscar() {
+      const termo = document.getElementById("busca").value.toLowerCase();
+      const linhas = document.querySelectorAll("li");
+      linhas.forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(termo) ? "" : "none";
+      });
+    }
+  </script>
 </head>
 <body>
-    <div class="section">
-        <div class="title">Dados do Segurado</div>
-        <div class="entry" onclick="copyText('LUIZA EVANGELISTA CATARIN')">Nome: LUIZA EVANGELISTA CATARIN</div>
-        <div class="entry" onclick="copyText('25249144888')">CPF: 25249144888</div>
-    </div>
-    <div class="section">
-        <div class="title">Dados do Seguro</div>
-        <div class="entry" onclick="copyText('R$ 3725,00')">Valor Total da Apólice: <strong>R$ 3.725,00</strong></div>
-        <div class="entry" onclick="copyText('4989,00')">Franquia: R$ 4.989,00</div>
-    </div>
-    <script>
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert("Copiado: " + text);
-            });
-        }
-    </script>
+  <header>
+    <h1>📄 FEMAVI - Sistema de Cotações</h1>
+  </header>
+  <div class="container">
+    <input type="text" id="busca" onkeyup="buscar()" placeholder="🔍 Buscar por nome, CPF, placa, chassi, etc.">
+    {% for mes, lista in cotacoes|groupby("pasta") %}
+      <h2>{{ mes }}</h2>
+      <ul>
+        {% for item in lista %}
+          <li><a href="/static/cotacoes/{{ mes }}/{{ item.arquivo }}" target="_blank">{{ item.arquivo }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
 </body>
 </html>

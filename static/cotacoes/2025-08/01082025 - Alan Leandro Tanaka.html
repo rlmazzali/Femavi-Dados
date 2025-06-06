@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cotação - Alan Leandro Tanaka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 16px;
+            font-size: 14px;
+        }
+        .bloco {
+            margin-bottom: 20px;
+        }
+        .titulo {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .copiavel {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function copiarTexto(element) {
+            navigator.clipboard.writeText(element.innerText);
+            alert('Copiado: ' + element.innerText);
+        }
+    </script>
+</head>
+<body>
+    <div class="bloco">
+        <div class="titulo">Dados do Segurado</div>
+        <div class="copiavel" onclick="copiarTexto(this)">Nome: Alan Leandro Tanaka</div><br>
+        <div class="copiavel" onclick="copiarTexto(this)">CPF: 31298077843</div>
+    </div>
+
+    <div class="bloco">
+        <div class="titulo">Dados do Seguro</div>
+        <div class="copiavel" onclick="copiarTexto(this)">Valor Total da Apólice: R$ 3.725,00</div><br>
+        <div class="copiavel" onclick="copiarTexto(this)">Franquia: R$ 4.989,00</div>
+    </div>
+</body>
+</html>
