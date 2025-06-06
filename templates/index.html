@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cotações de Seguro</title>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 14px; padding: 20px; }
+        .section { margin-bottom: 15px; }
+        .title { font-weight: bold; margin-top: 10px; }
+        .entry { margin-left: 10px; cursor: pointer; }
+        .entry:hover { background-color: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="title">Dados do Segurado</div>
+        <div class="entry" onclick="copyText('LUIZA EVANGELISTA CATARIN')">Nome: LUIZA EVANGELISTA CATARIN</div>
+        <div class="entry" onclick="copyText('25249144888')">CPF: 25249144888</div>
+    </div>
+    <div class="section">
+        <div class="title">Dados do Seguro</div>
+        <div class="entry" onclick="copyText('R$ 3725,00')">Valor Total da Apólice: <strong>R$ 3.725,00</strong></div>
+        <div class="entry" onclick="copyText('4989,00')">Franquia: R$ 4.989,00</div>
+    </div>
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Copiado: " + text);
+            });
+        }
+    </script>
+</body>
+</html>
